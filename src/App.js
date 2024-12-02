@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RoleSelection from './components/RoleSelection';
+import AdminLogin from './components/admin/Login';
+import AdminRegister from './components/admin/Register';
+// import FacultyLogin from './components/faculty/Login';
+// import FacultyRegister from './components/faculty/Register';
+// import StudentLogin from './components/student/Login';
+// import StudentRegister from './components/student/Register';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<RoleSelection />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/register" element={<AdminRegister />} />
+        {/* <Route path="/faculty/login" element={<FacultyLogin />} />
+        <Route path="/faculty/register" element={<FacultyRegister />} />
+        <Route path="/student/login" element={<StudentLogin />} />
+        <Route path="/student/register" element={<StudentRegister />} /> */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
